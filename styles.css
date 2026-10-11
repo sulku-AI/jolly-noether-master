@@ -367,6 +367,90 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .application-button-v2:disabled { opacity: .7; cursor: not-allowed; }
 .application-button-v2 span { color: #826d9a; }
 .application-status-v2 { display: block; margin-top: 9px; color: #77717c; font-size: 10px; }
+.application-option-v2.is-open { border-top-color: var(--plum); }
+.application-button-v2.application-button-open {
+  background: var(--plum);
+  color: #ffffff;
+  border-color: var(--plum);
+  padding: 0 14px 0 16px;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(48, 32, 82, 0.18);
+}
+.application-button-v2.application-button-open .app-btn-label {
+  color: #ffffff !important;
+  font-weight: 700;
+  display: inline-block;
+}
+.application-button-v2.application-button-open .app-open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--lime);
+  color: var(--plum-deep) !important;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform .22s ease, background-color .22s ease;
+}
+.application-button-v2.application-button-open .app-open-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #18a058;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(24, 160, 88, 0.7);
+  animation: pulse-dot-app 1.8s ease-in-out infinite;
+}
+@keyframes pulse-dot-app {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(24, 160, 88, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 5px rgba(24, 160, 88, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(24, 160, 88, 0); }
+}
+.application-button-v2.application-button-open .icon-arrow {
+  color: var(--lime);
+}
+.application-button-v2.application-button-open:hover {
+  background: var(--plum-deep);
+  border-color: var(--plum-deep);
+  box-shadow: 0 8px 24px rgba(48, 32, 82, 0.32);
+  transform: translateY(-3px);
+}
+.application-button-v2.application-button-open:hover .app-btn-label {
+  color: #ffffff !important;
+  transform: none !important;
+}
+.application-button-v2.application-button-open:hover .app-open-badge {
+  color: var(--plum-deep) !important;
+  background: #edf6b6;
+  transform: none !important;
+}
+.application-button-v2.application-button-open:hover .app-open-dot {
+  transform: none !important;
+}
+.application-button-v2.application-button-open:hover .icon-arrow {
+  color: var(--lime);
+  transform: translate(3px, -2px);
+}
+.application-status-v2.is-open {
+  color: var(--plum);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.application-status-v2.is-open::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #18a058;
+}
 @media (min-width: 1500px) {
   .hero-v2, .purpose-v2, .conference-v2, .details-v2, .giving-v2, .applications-v2 { padding-right: max(var(--page-gutter), calc((100vw - 1320px) / 2)); padding-left: max(var(--page-gutter), calc((100vw - 1320px) / 2)); }
 }
@@ -440,6 +524,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .application-option-v2 h3 { margin-top: 19px; font-size: 24px; }
   .application-option-v2 > p { font-size: 11px; }
   .application-button-v2 { max-width: 100%; font-size: 10px; }
+  .application-button-v2.application-button-open { padding: 0 12px; gap: 8px; font-size: 10px; }
+  .application-button-v2.application-button-open .app-open-badge { font-size: 8.5px; padding: 2px 7px; }
   .footer-main-v2 { min-height: 0; grid-template-columns: 1fr auto; gap: 15px; padding-bottom: 22px; }
   .footer-main-v2 > p { grid-column: 1 / -1; grid-row: 2; font-size: 15px; }
   .footer-hashtag-v2 { grid-column: 2; grid-row: 1; font-size: 9px; }
