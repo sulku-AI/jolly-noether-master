@@ -555,6 +555,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .letter-role-v2 { position: relative; z-index: 1; color: #76658a; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 .letter-v2 h2 { position: relative; z-index: 1; margin: 42px 0 0; color: var(--plum); font-family: var(--serif); font-size: 38px; font-weight: 400; }
 .letter-v2 p { position: relative; z-index: 1; max-width: 350px; margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.letter-photo { position: absolute; bottom: 20px; right: 20px; width: 180px; opacity: 0.85; filter: drop-shadow(0 8px 16px rgba(36,20,62,.15)); }
+.letter-photo img { width: 100%; height: auto; display: block; }
+.letter-v2:first-child .letter-photo { right: 40px; }
+.letter-v2:last-child .letter-photo { left: 40px; right: auto; }
 .purpose-v2 { position: relative; overflow: hidden; isolation: isolate; }
 .purpose-content-v2 { position: relative; z-index: 1; }
 .giving-v2 { overflow: hidden; isolation: isolate; }
