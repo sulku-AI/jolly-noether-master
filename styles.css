@@ -549,16 +549,22 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .letters-v2 { position: relative; padding: 49px var(--page-gutter) 73px; overflow: hidden; background: var(--paper); }
 .letters-heading-v2 { margin-bottom: 21px; display: flex; align-items: center; justify-content: space-between; }
 .letters-heading-v2 .section-kicker-v2 { margin: 0; }
-.letter-grid-v2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.letter-v2 { position: relative; min-height: 252px; overflow: hidden; padding: 25px 32px 25px 0; }
-.letter-v2 + .letter-v2 { padding-right: 0; padding-left: 32px; border-left: 1px solid var(--line); }
-.letter-role-v2 { position: relative; z-index: 1; color: #76658a; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
-.letter-v2 h2 { position: relative; z-index: 1; margin: 42px 0 0; color: var(--plum); font-family: var(--serif); font-size: 38px; font-weight: 400; }
-.letter-v2 p { position: relative; z-index: 1; max-width: 350px; margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
-.letter-photo { position: absolute; bottom: 20px; right: 20px; width: 180px; opacity: 0.85; filter: drop-shadow(0 8px 16px rgba(36,20,62,.15)); }
-.letter-photo img { width: 100%; height: auto; display: block; }
-.letter-v2:first-child .letter-photo { right: 40px; }
-.letter-v2:last-child .letter-photo { left: 40px; right: auto; }
+.letter-grid-v2 { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.letter-v2 { position: relative; display: grid; grid-template-columns: 240px 1fr; gap: 36px; align-items: start; padding: 36px 0; }
+.letter-v2 + .letter-v2 { border-top: 1px solid var(--line); }
+.letter-v2--photo-right { grid-template-columns: 1fr 240px; }
+.letter-role-v2 { position: relative; z-index: 1; margin: 0 0 6px; color: var(--plum); font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: 0; }
+.letter-salutation { position: relative; z-index: 1; margin: 0 0 6px; color: var(--muted); font-size: 11px; font-weight: 600; }
+.letter-v2 p { position: relative; z-index: 1; margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.letter-text-col { display: flex; flex-direction: column; }
+.letter-text-col--right { text-align: right; }
+.letter-photo-col { position: sticky; top: 32px; align-self: start; }
+.letter-photo-wrap { background: rgba(255,255,255,0.85); padding: 10px 10px 28px; box-shadow: 0 6px 22px rgba(36,20,62,.13); transform: rotate(-2deg); transition: transform 0.35s ease; overflow: hidden; }
+.letter-photo-wrap:hover { transform: rotate(0deg) scale(1.02); }
+.letter-photo-wrap--right { transform: rotate(2deg); }
+.letter-photo-wrap--right:hover { transform: rotate(0deg) scale(1.02); }
+.letter-photo-wrap .photo-inner { overflow: hidden; width: 100%; height: 300px; }
+.letter-photo-wrap img { width: 100%; height: 100%; display: block; object-fit: cover; transform: scale(1.725); transform-origin: center 50%; filter: grayscale(8%); }
 .purpose-v2 { position: relative; overflow: hidden; isolation: isolate; }
 .purpose-content-v2 { position: relative; z-index: 1; }
 .giving-v2 { overflow: hidden; isolation: isolate; }
@@ -588,8 +594,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .button-v2:hover .icon-arrow-down { transform: translateY(3px); }
 .applications-grid-v2.three-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
 @media (max-width: 1024px) { .applications-grid-v2.three-cards { grid-template-columns: 1fr; gap: 28px; } }
-.doodle-field { position: absolute; z-index: 1; inset: 0; overflow: hidden; pointer-events: none; user-select: none; }
-.doodle { position: absolute; left: var(--left, auto); right: var(--right, auto); top: var(--top, auto); bottom: var(--bottom, auto); width: var(--width, 90px); max-width: 27vw; height: auto; display: block; object-fit: contain; opacity: var(--alpha, .7); filter: drop-shadow(0 5px 7px rgba(36,20,62,.12)); transform: rotate(var(--angle, 0deg)); transform-origin: center; pointer-events: none; }
+.doodle-field { position: absolute; z-index: 1; inset: 0; pointer-events: none; user-select: none; mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); mask-composite: intersect; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%), linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%); -webkit-mask-composite: source-in; }
+.doodle { position: absolute; left: var(--left, auto); right: var(--right, auto); top: var(--top, auto); bottom: var(--bottom, auto); width: var(--width, 90px); max-width: 27vw; height: auto; display: block; object-fit: contain; opacity: var(--alpha, .7); filter: drop-shadow(0 5px 7px rgba(36,20,62,.10)); transform: rotate(var(--angle, 0deg)); transform-origin: center; pointer-events: none; transition: opacity 0.3s ease; }
 .hero-v2, .letters-v2, .purpose-v2, .conference-v2, .details-v2, .giving-v2, .applications-v2 { position: relative; isolation: isolate; }
 .hero-v2 { overflow: hidden; }
 .hero-v2 .hashtag-wash { z-index: 0; }
