@@ -318,6 +318,55 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
 .feature-index-v2 { color: #8f7f9e; font-size: 10px; letter-spacing: .08em; }
 .feature-v2 h3 { margin: 34px 0 0; color: var(--plum); font-family: var(--serif); font-size: 25px; font-weight: 400; }
 .feature-v2 p { max-width: 310px; margin: 11px 0 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+/* ── Committees grid ──────────────────────────────────────────────── */
+.committees-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.committee-card-v2 {
+  padding: 36px 32px 38px 0;
+  border-bottom: 1px solid var(--line);
+}
+.committee-card-v2:nth-child(even) {
+  padding-left: 32px;
+  padding-right: 0;
+  border-left: 1px solid var(--line);
+}
+/* Last card spans full width when there is an odd number of items */
+.committee-card-v2:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+/* Remove bottom border from the last row (2-col: last two items or single spanning item) */
+.committee-card-v2:nth-last-child(1),
+.committee-card-v2:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+.committee-index-v2 {
+  display: block;
+  color: #8f7f9e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.committee-topic-v2 {
+  margin: 16px 0 0;
+  color: var(--plum);
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.committee-desc-v2 {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.85;
+  max-width: 580px;
+}
+
 .details-v2 { padding: 84px var(--page-gutter) 91px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 10%; background: #f0eee8; }
 .details-intro-v2 h2 { color: var(--plum); }
 .details-intro-v2 > p { max-width: 320px; margin: 16px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
@@ -764,6 +813,22 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); outline-
   .hashtag-wash span { font-size: clamp(43px, 10vw, 76px); }
   .hashtag-wash-light { opacity: .16; }
   .hashtag-wash-plum { opacity: .12; }
+  /* committees grid – mobile */
+  .committees-grid-v2 { grid-template-columns: 1fr; }
+  .committee-card-v2 {
+    padding: 28px 0 30px;
+    border-bottom: 1px solid var(--line);
+  }
+  .committee-card-v2:nth-child(even) {
+    padding-left: 0;
+    border-left: none;
+  }
+  .committee-card-v2:last-child:nth-child(odd) { grid-column: 1; }
+  .committee-card-v2:nth-last-child(1),
+  .committee-card-v2:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--line); }
+  .committee-card-v2:last-child { border-bottom: none; }
+  .committee-topic-v2 { font-size: clamp(17px, 5vw, 21px); }
+  .committee-desc-v2 { font-size: 13px; max-width: 100%; }
   .nav-cta-v2 { border-radius: 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
